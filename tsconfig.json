@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+  "@/*": ["./*"],
+  "@ai-sdk/react": ["./lib/shims/ai-react"],
+  "@ai-sdk/anthropic": ["./lib/shims/ai-anthropic"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

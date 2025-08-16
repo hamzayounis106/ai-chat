@@ -1,26 +1,183 @@
 @import "tailwindcss";
 
+/* 90s Terminal/Retro Aesthetic */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #000000;
+  --card: #111111;
+  --muted: #00ff00;
+  --accent: #00ff00;
+  --border: #333333;
+  --text: #00ff00;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body, #root {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000000;
+  color: #00ff00;
+  font-family: 'Courier New', 'Lucida Console', Monaco, monospace;
+  font-size: 14px;
+  line-height: 1.4;
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background: #000000;
+  border: 2px solid #333333;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #333333;
+  background: #000000;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #00ff00;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #333333;
+  background: #000000;
+  color: #00ff00;
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #00ff00;
+  color: #000000;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  background: #000000;
+  color: #00ff00;
+}
+
+.muted { 
+  color: #666666; 
+}
+
+.chat-bubble { 
+  padding: 0.5rem; 
+  border: 1px solid #333333; 
+  margin: 0.25rem 0;
+}
+
+.chat-user { 
+  border-left: 3px solid #00ff00; 
+  background: #001100;
+}
+
+.chat-assistant { 
+  border-left: 3px solid #666666; 
+  background: #111111;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #00ff00 #111111;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #111111;
+  border: 1px solid #333333;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border: 1px solid #333333;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #00cc00;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: #111111;
+}
+
+/* Typing Animation */
+.typing-dots {
+  display: inline-flex;
+  gap: 2px;
+  margin-right: 8px;
+}
+
+.typing-dots span {
+  width: 4px;
+  height: 4px;
+  background: #00ff00;
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.typing-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dropdown {
+  from { opacity: 0; transform: translateY(-6px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce-delay {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+
+.animate-dropdown { animation: dropdown 180ms ease forwards; }
+.animate-fadeup { animation: fadeup 220ms ease forwards; }
+.animate-bounce-delay { animation: bounce-delay 800ms infinite; }
